@@ -2,11 +2,11 @@ $(function () {
     $('#send_number').on('click', function () {
         var token = $('#csrf_token').val();
         var user_id = $('#user_id').val();
-        var number_to_guess = $('#number_to_guess').val();
-        var try_to_guess = $('#try_to_guess').val();
+        var number_to_guess = parseInt($('#number_to_guess').val());
+        var try_to_guess = parseInt($('#try_to_guess').val());
 
         document.getElementById('result').innerHTML = '';
-        if (try_to_guess.search(/[\a-zа-яё]/i) >= 0){
+        if ( isNaN(try_to_guess)){
             document.getElementById('more_less').innerHTML = '';
             document.getElementById('result').innerHTML = 'Only numbers!';
             return;
