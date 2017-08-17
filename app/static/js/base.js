@@ -27,11 +27,13 @@ $(function () {
                     $('#send_number').hide();
                     $('#exit').hide();
                     $('#game_over').show();
+                    return;
                 } else {
-                    alert('Something was wrong!');
+                    alert('Something was wrong! (eq)');
+                    return;
                 }
             }).fail(function (result) {
-                alert('Server error!');
+                alert('Server error! (eq)');
             });
         }
 
@@ -53,7 +55,7 @@ $(function () {
             })
         }
 
-        if (balance < 1){
+        if (balance < 1 && number_to_guess != try_to_guess){
             document.getElementById('result').innerHTML = 'Sorry, you failed.';
             $('#exit').hide();
             $.post("/write_progress", {
@@ -66,10 +68,10 @@ $(function () {
                     $('#send_number').hide();
                     $('#game_over').show();
                 } else {
-                    alert('Something was wrong!');
+                    alert('Something was wrong! (b)');
                 }
             }).fail(function () {
-                alert('Server error!');
+                alert('Server error! (b)');
             });
         }
 

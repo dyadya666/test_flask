@@ -1,3 +1,5 @@
+#!myvenv/bin/python3
+
 import sqlite3
 conn = sqlite3.connect('/home/sergey/projects/test_flask/app.db')
 c = conn.cursor()
